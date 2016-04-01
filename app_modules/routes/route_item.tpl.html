@@ -1,0 +1,67 @@
+<div class="col-xs-7">
+  <h2><%= data.title %></h2>
+  <h3>
+    <span class="label verb-<%= data.verb.toLowerCase() %>"><%= data.verb %></span>
+    <span class="url"><%= data.url %></span>
+  </h3>
+  <p><i><%= data.description %></i></p>
+  <p><label>Headers: </label><%= data.headers %></p>
+
+  <div><label>Request body: </label>
+    <ul>
+      <% _.forEach(data.requestBody, function(resp, i) { %>
+      <li>
+          <span><%= resp %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <div><label>Response status: </label>
+    <ul>
+      <% _.forEach(data.responseStatus, function(resp, i) { %>
+      <li>
+          <span><%= resp %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <p><label>Response body: </label><br>
+    <textarea class="form-control" disabled name="" id="" cols="30" rows="10">
+      <%= data.responseBody %>
+    </textarea>
+  </p>
+
+  <p><i><%= data.comment %></i></p>
+
+</div>
+<div class="col-xs-5">
+  <div class="form-group">
+    <label for="query-params">Query: </label>
+    <input type="text" class="js-query-params form-control" value="<%= data.url %>">
+  </div>
+
+  <div class="form-group">
+    <label for="request-body">Request body: </label>
+    <textarea class="js-request-body form-control" name="request-body" id="" cols="30" rows="10"></textarea>
+  </div>
+  <button type="button" class="js-test btn btn-success col-xs-12">
+    <i class="material-icons">autorenew</i>
+    Run 
+  </button>
+  <% _.forEach(data.examples, function(example, i) { %>
+    <button class="js-example btn btn-success col-xs-6" value="<%= i %>">
+      <%= example.query %>
+    </button>
+  <% }); %>
+
+</div>
+
+<div class="col-xs-12">
+  <label for="query-params">Response: </label>
+  <textarea class="js-response response" name="" id="" cols="30" rows="10">
+  </textarea>
+</div>
+
+</div>

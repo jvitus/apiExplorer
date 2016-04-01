@@ -1,0 +1,43 @@
+.header-app {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: @header-height;
+  z-index: 2;
+  background: #ddd;
+  color: #FFF;
+  color: @brand-primary;
+  /*.box-shadow(0 0 6px rgba(0, 0, 0, 0.5));*/
+  .btn {
+    border: none;
+    color: #FFF;
+  }
+  .title {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    &:extend(.btn-lg);
+    strong {
+      font-weight: 500;
+      &:after {
+        content: "|";
+        font-weight: 300;
+        display: inline-block;
+        margin: 0 3px 0 7px;
+      }
+    }
+  }
+  .col-side {
+    position: relative;
+    z-index: 1;
+  }
+  @media (min-width: @screen-sm-min) {
+  }
+  @media (min-width: @screen-md-min) {
+  }
+  @media (min-width: @screen-lg-min) {
+    //left: 20%;
+  }
+}

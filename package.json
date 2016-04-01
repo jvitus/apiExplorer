@@ -4,8 +4,9 @@
   "description": "TODO",
   "private": false,
   "browser": {
-    "jquery-ns": "./vendor/ns/jquery-ns.js",
-    "lodash-ns": "./vendor/ns/lodash-ns.js",
+    "jquery-ns": "./vendors/ns/jquery-ns.js",
+    "lodash-ns": "./vendors/ns/lodash-ns.js",
+    "backbone": "./node_modules/backbone.marionette/node_modules/backbone/backbone.js",
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
   },
   "browserify": {
@@ -16,7 +17,7 @@
   "browserify-shim": {
     "jquery-ns": {
       "depends": [
-        "jquery:jQuery",
+        "jquery:jQuery"
       ]
     },
     "lodash-ns": {
@@ -49,10 +50,12 @@
     "node-underscorify": "0.0.14"
   },
   "dependencies": {
+    "backbone.marionette": "^2.4.5",
     "bootstrap": "^3.3.5",
     "browserify-shim": "^3.8.9",
     "i18next-client": "^1.10.3",
     "jquery": "^2.1.4",
+    "lodash": "^4.6.1",
     "moment": "^2.10.6",
     "numeral": "^1.5.3"
   }
