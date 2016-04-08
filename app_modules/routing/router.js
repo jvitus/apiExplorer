@@ -4,7 +4,9 @@ var Marionette = require('backbone.marionette');
 
 var Router = Marionette.AppRouter.extend({
     appRoutes: {
-        '*route(/:page)': 'home',
+        'add(/)' : 'add',
+        '*route(/:page)': 'home'
+
     },
 });
 

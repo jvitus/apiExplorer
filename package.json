@@ -6,7 +6,7 @@
   "browser": {
     "jquery-ns": "./vendors/ns/jquery-ns.js",
     "lodash-ns": "./vendors/ns/lodash-ns.js",
-    "backbone": "./node_modules/backbone.marionette/node_modules/backbone/backbone.js",
+    "backbone": "./node_modules/backbone/backbone.js",
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
   },
   "browserify": {

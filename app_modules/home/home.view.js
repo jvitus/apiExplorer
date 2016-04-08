@@ -1,10 +1,14 @@
 'use strict';
 
 var Marionette = require('backbone.marionette');
+
 var Backbone = require('backbone');
 var $ = require('jquery');
 var MenuItemView = require('../routes/menu_item.view');
 var RouteItemView = require('../routes/route_item.view');
+var AddItemView = require('../routes/add_item.view');
+
+var Router = require('../routing/router');
 
 var UserPostModel = require('../routes/models/users.post.model');
 var DevicesGetModel = require('../routes/models/devices.get.model');
@@ -13,6 +17,8 @@ var DevicesHeadIdModel = require('../routes/models/devices.head.id.model');
 var DevicesPatchIdModel = require('../routes/models/devices.patch.id.model');
 var DevicesGetIdMeasuresModel = require('../routes/models/devices.get.id.measures.model');
 
+var Main = require('../main/main.view');
+
 
 var View = Marionette.LayoutView.extend({
     template: require('./home.tpl.html'),
@@ -20,11 +26,18 @@ var View = Marionette.LayoutView.extend({
 
     ui: {
       'menu': '.js-menu-container',
-      'routes': '.js-routes-container'
+      'routes': '.js-routes-container',
+       'button': '.btnAdd'
+      
+    },
+
+    region: {
+      'rgRight' : '.js-routes-container'
     },
 
     events: {
-      'click .js-all': 'displayAll'
+      'click .js-all': 'displayAll',
+      'click @ui.button' :'btnAdd'
     },
 
     initialize: function() {
@@ -88,9 +101,28 @@ var View = Marionette.LayoutView.extend({
       this.collView.render();
       this.ui.routes.html(this.collView.el);
 
+      /* test affichage formulaire*/
+     /* this.AddView.render();
+      this.ui.routes.html(this.AddView.el);*/
+
+      /* fin test */
+
       this.collViewMenu.render();
       this.ui.menu.html(this.collViewMenu.el);
     },
+    btnAdd : function(){
+       /* console.log("la vue du formulaire doit s'afficher");
+        Main.getInstance().rgMain.show(AddItemView.getNewInstance() ) ;
+       this.ui.routes.show(AddItemView.getNewInstance() ) ;
+*/
+      //console.log(Main.getInstance().rgMain.rgPanel)
+      var newI = AddItemView.getNewInstance();
+      newI.render();
+      this.ui.routes.html(newI.el) ;
+      Backbone.history.navigate('#add/', {trigger: true});
+
+
+    }
 
 });
 

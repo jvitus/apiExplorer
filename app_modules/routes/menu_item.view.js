@@ -7,8 +7,14 @@ var View = Marionette.LayoutView.extend({
     template: require('./menu_item.tpl.html'),
     className: 'menu-item-view',
 
+    ui :{
+        button: '.btnRemove'
+    },
+
     events: {
-        'click': 'active'
+        'click': 'active',
+        'click @ui.button' :'btnErase',
+        
     },
 
     modelEvents: {
@@ -33,6 +39,19 @@ var View = Marionette.LayoutView.extend({
         });
         this.model.set('active', true);
     },
+    btnErase : function(){
+        console.log("on efface cette donnée "+this.model.get('title'));
+
+        this.model.destroy();
+        
+        /*var test = this.model.get('title');
+        console.log("on va effacer cette item"+test);
+        var modelEfface = this.model.collection.remove(test);
+        console.log("on a effacé :"+modelEfface);*/
+       // this.model.collection.remove(this.model.get('title'));
+
+    },
+    
 });
 
 module.exports = {

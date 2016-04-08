@@ -1,11 +1,13 @@
 'use strict';
 
 var Marionette = require('backbone.marionette');
+
 var _ = require('lodash');
 var $ = require('jquery');
 var i18n = require('i18next-client');
 var Header = require('../header/header.view'); 
 var Sidenav = require('../sidenav/sidenav.view');
+
 
 var MainRegion = Marionette.Region.extend({
     attachHtml: function(view) {
@@ -45,9 +47,7 @@ var Layout = Marionette.LayoutView.extend({
     regions: {
         rgHeader: 'header',
         rgSidenav: 'aside',
-        rgMain: new MainRegion({
-            el: 'main'
-        }),
+        rgMain: 'main',
         rgFooter: 'footer'
     },
 
